@@ -1,5 +1,6 @@
 
 import React from 'react';
+import './MealCard.css';
 
 interface MealCardProps {
   title: string;
@@ -17,17 +18,17 @@ const MealCard: React.FC<MealCardProps> = ({
   imageUrl
 }) => {
   return (
-    <div className="bg-fitnessCardBg p-4 rounded-lg flex items-center gap-4">
-      <div className="w-16 h-16 rounded-lg overflow-hidden">
-        <img src={imageUrl} alt={title} className="w-full h-full object-cover" />
+    <div className="meal-card">
+      <div className="meal-image-container">
+        <img src={imageUrl} alt={title} className="meal-image" />
       </div>
-      <div className="flex-1">
-        <h3 className="font-medium">{title}</h3>
-        <div className="text-sm text-fitnessGray">
+      <div className="meal-content">
+        <h3 className="meal-title">{title}</h3>
+        <div className="meal-nutrients">
           {calories} kcal • {protein}g protein
         </div>
       </div>
-      <div className="text-right text-sm text-fitnessGray">
+      <div className="meal-time">
         {time}
       </div>
     </div>

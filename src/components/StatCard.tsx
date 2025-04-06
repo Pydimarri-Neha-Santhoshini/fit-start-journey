@@ -1,5 +1,6 @@
 
 import React from 'react';
+import './StatCard.css';
 
 interface StatCardProps {
   title: string;
@@ -18,12 +19,12 @@ const StatCard: React.FC<StatCardProps> = ({
 }) => {
   return (
     <div className="stat-card">
-      <div className="flex justify-between items-start">
-        <div className="text-fitnessGray text-sm">{title}</div>
-        {icon && <div className="text-fitnessRed">{icon}</div>}
+      <div className="stat-card-header">
+        <div className="stat-card-title">{title}</div>
+        {icon && <div className="stat-card-icon">{icon}</div>}
       </div>
-      <div className="text-2xl font-bold">{value}</div>
-      <div className="text-xs text-fitnessGray">{subText}</div>
+      <div className="stat-card-value">{value}</div>
+      <div className="stat-card-subtext">{subText}</div>
     </div>
   );
 };

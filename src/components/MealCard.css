@@ -1,0 +1,44 @@
+
+.meal-card {
+  background-color: #1a1a1a;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.meal-image-container {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.meal-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.meal-content {
+  flex: 1;
+}
+
+.meal-title {
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0;
+  margin-bottom: 0.25rem;
+}
+
+.meal-nutrients {
+  font-size: 0.875rem;
+  color: #888888;
+}
+
+.meal-time {
+  text-align: right;
+  font-size: 0.875rem;
+  color: #888888;
+}
