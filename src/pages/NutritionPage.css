@@ -15,6 +15,7 @@
 .nutrition-title {
   font-size: 48px;
   font-weight: bold;
+  color: #ea384c;
 }
 
 .nutrition-filters {
@@ -28,16 +29,22 @@
   align-items: center;
   margin-bottom: 8px;
   cursor: pointer;
+  background-color: #1a1a1a;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #333;
 }
 
 .nutrition-plan-name {
   font-size: 18px;
   margin-right: 8px;
+  color: white;
 }
 
 .dropdown-icon {
   width: 16px;
   height: 16px;
+  color: #ea384c;
 }
 
 .nutrition-subtitle {
@@ -60,10 +67,19 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.nutrition-action-button:hover {
+  background-color: #333;
 }
 
 .nutrition-action-button.favorite {
   background-color: #ea384c;
+}
+
+.nutrition-action-button.favorite:hover {
+  background-color: #d2293d;
 }
 
 .action-icon {
@@ -77,21 +93,28 @@
   margin-bottom: 24px;
   overflow-x: auto;
   padding-bottom: 8px;
+  gap: 10px;
 }
 
 .meal-tab {
   padding: 12px 24px;
   border-radius: 9999px;
-  background-color: transparent;
-  border: none;
+  background-color: #1a1a1a;
+  border: 1px solid #333;
   color: white;
   font-weight: 500;
   cursor: pointer;
   white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.meal-tab:hover {
+  background-color: #333;
 }
 
 .meal-tab.active {
   background-color: #ea384c;
+  border-color: #ea384c;
 }
 
 .meals-list {
@@ -102,12 +125,20 @@
 
 .meal-item {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   background-color: #1a1a1a;
   border-radius: 8px;
   padding: 16px;
   margin-bottom: 16px;
   position: relative;
+  border: 1px solid #333;
+  transition: all 0.2s;
+}
+
+.meal-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 .meal-image-container {
@@ -132,11 +163,33 @@
   font-size: 18px;
   font-weight: 500;
   margin-bottom: 8px;
+  color: white;
 }
 
 .meal-info {
   color: #888888;
   font-size: 14px;
+}
+
+.meal-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.meal-view-button {
+  background-color: transparent;
+  color: #ea384c;
+  border: 1px solid #ea384c;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.meal-view-button:hover {
+  background-color: rgba(234, 56, 76, 0.1);
 }
 
 .meal-favorite {
@@ -150,4 +203,127 @@
   width: 24px;
   height: 24px;
   color: white;
+  transition: all 0.2s;
+}
+
+.heart-icon:hover {
+  color: #ea384c;
+}
+
+.meal-expanded {
+  flex-basis: 100%;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #333;
+}
+
+.ingredients-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #ea384c;
+}
+
+.ingredients-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-bottom: 16px;
+  color: #ddd;
+}
+
+.ingredients-list li {
+  margin-bottom: 4px;
+}
+
+.meal-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.meal-button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.add-to-plan {
+  background-color: #ea384c;
+  color: white;
+  border: none;
+}
+
+.add-to-plan:hover {
+  background-color: #d2293d;
+}
+
+.get-recipe {
+  background-color: transparent;
+  color: white;
+  border: 1px solid #555;
+}
+
+.get-recipe:hover {
+  background-color: #333;
+}
+
+.nutrition-footer {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.create-meal-button {
+  background-color: #1a1a1a;
+  color: #ea384c;
+  border: 1px solid #ea384c;
+  border-radius: 8px;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.create-meal-button:hover {
+  background-color: rgba(234, 56, 76, 0.1);
+}
+
+.plus-icon {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 768px) {
+  .nutrition-header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  
+  .nutrition-actions {
+    align-self: flex-end;
+  }
+  
+  .meal-tabs {
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+  
+  .meal-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .meal-image-container {
+    margin-bottom: 12px;
+  }
+  
+  .meal-actions {
+    margin-top: 12px;
+    align-self: flex-end;
+  }
 }
