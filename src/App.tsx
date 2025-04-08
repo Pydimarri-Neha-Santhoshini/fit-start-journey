@@ -12,6 +12,7 @@ import CommunityPage from "./pages/CommunityPage";
 import WorkoutDetailPage from "./pages/WorkoutDetailPage";
 import WorkoutDayPage from "./pages/WorkoutDayPage";
 import AiRecommendationsPage from "./pages/AiRecommendationsPage";
+import BmiCalculatorPage from "./pages/BmiCalculatorPage";
 import SettingsPage from "./pages/SettingsPage";
 import NotFound from "./pages/NotFound";
 
@@ -32,6 +33,7 @@ const App = () => (
           <Route path="/progress" element={<ProgressPage />} />
           <Route path="/community" element={<CommunityPage />} />
           <Route path="/ai-recommendations" element={<AiRecommendationsPage />} />
+          <Route path="/bmi-calculator" element={<BmiCalculatorPage />} />
           <Route path="/settings" element={<SettingsPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

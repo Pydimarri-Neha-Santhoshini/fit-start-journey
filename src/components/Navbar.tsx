@@ -16,6 +16,8 @@ const Navbar: React.FC = () => {
         <Link to="/workouts" className={path.includes('/workout') ? 'active' : ''}>Workouts</Link>
         <Link to="/nutrition" className={path.includes('/nutrition') ? 'active' : ''}>Nutrition</Link>
         <Link to="/progress" className={path.includes('/progress') ? 'active' : ''}>Progress</Link>
+        <Link to="/ai-recommendations" className={path.includes('/ai-recommendations') ? 'active' : ''}>AI Recommendations</Link>
+        <Link to="/bmi-calculator" className={path.includes('/bmi-calculator') ? 'active' : ''}>BMI Calculator</Link>
         <Link to="/community" className={path.includes('/community') ? 'active' : ''}>Community</Link>
       </div>
       
