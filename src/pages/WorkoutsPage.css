@@ -1,0 +1,86 @@
+
+.page-header {
+  margin-bottom: 24px;
+}
+
+.page-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.workouts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.workout-plan-card {
+  background-color: #ffeef2;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.difficulty-indicator {
+  margin-bottom: 12px;
+}
+
+.difficulty-icon {
+  color: #dddddd;
+  margin-right: 4px;
+}
+
+.difficulty-icon.active {
+  color: #ea384c;
+}
+
+.workout-plan-content {
+  position: relative;
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.workout-plan-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.workout-plan-info {
+  position: relative;
+  z-index: 1;
+  padding: 16px;
+}
+
+.workout-plan-title {
+  font-size: 16px;
+  color: #000000;
+  margin-bottom: 4px;
+}
+
+.workout-plan-day {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.workout-plan-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff4d6d;
+  color: white;
+  border-radius: 9999px;
+  padding: 12px 24px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.chevron-icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 8px;
+}

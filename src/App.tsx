@@ -5,6 +5,14 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
+import WorkoutsPage from "./pages/WorkoutsPage";
+import NutritionPage from "./pages/NutritionPage";
+import ProgressPage from "./pages/ProgressPage";
+import CommunityPage from "./pages/CommunityPage";
+import WorkoutDetailPage from "./pages/WorkoutDetailPage";
+import WorkoutDayPage from "./pages/WorkoutDayPage";
+import AiRecommendationsPage from "./pages/AiRecommendationsPage";
+import SettingsPage from "./pages/SettingsPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -17,17 +25,14 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/workouts" element={<Index />} />
-          <Route path="/nutrition" element={<Index />} />
-          <Route path="/progress" element={<Index />} />
-          <Route path="/community" element={<Index />} />
-          <Route path="/goals" element={<Index />} />
-          <Route path="/nutrition/plan" element={<Index />} />
-          <Route path="/nutrition/create" element={<Index />} />
-          <Route path="/progress/report" element={<Index />} />
-          <Route path="/workout/cardio" element={<Index />} />
-          <Route path="/workout/strength" element={<Index />} />
-          <Route path="/workout/yoga" element={<Index />} />
+          <Route path="/workouts" element={<WorkoutsPage />} />
+          <Route path="/workout/:type" element={<WorkoutDetailPage />} />
+          <Route path="/workout/:type/:day" element={<WorkoutDayPage />} />
+          <Route path="/nutrition" element={<NutritionPage />} />
+          <Route path="/progress" element={<ProgressPage />} />
+          <Route path="/community" element={<CommunityPage />} />
+          <Route path="/ai-recommendations" element={<AiRecommendationsPage />} />
+          <Route path="/settings" element={<SettingsPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

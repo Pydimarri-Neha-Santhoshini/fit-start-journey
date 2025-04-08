@@ -1,0 +1,153 @@
+
+.nutrition-page {
+  padding: 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.nutrition-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+
+.nutrition-title {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.nutrition-filters {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.nutrition-plan-selector {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.nutrition-plan-name {
+  font-size: 18px;
+  margin-right: 8px;
+}
+
+.dropdown-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.nutrition-subtitle {
+  font-size: 14px;
+  color: #888888;
+}
+
+.nutrition-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.nutrition-action-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #222222;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.nutrition-action-button.favorite {
+  background-color: #ea384c;
+}
+
+.action-icon {
+  width: 24px;
+  height: 24px;
+  color: white;
+}
+
+.meal-tabs {
+  display: flex;
+  margin-bottom: 24px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.meal-tab {
+  padding: 12px 24px;
+  border-radius: 9999px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.meal-tab.active {
+  background-color: #ea384c;
+}
+
+.meals-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.meal-item {
+  display: flex;
+  align-items: center;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.meal-image-container {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 16px;
+}
+
+.meal-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.meal-details {
+  flex: 1;
+}
+
+.meal-name {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.meal-info {
+  color: #888888;
+  font-size: 14px;
+}
+
+.meal-favorite {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.heart-icon {
+  width: 24px;
+  height: 24px;
+  color: white;
+}

@@ -1,5 +1,6 @@
 
 import React from 'react';
+import './ProgressBar.css';
 
 interface ProgressBarProps {
   percentage: number;
@@ -15,20 +16,20 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   subtitle
 }) => {
   return (
-    <div className="bg-fitnessCardBg p-4 rounded-lg">
-      <div className="flex justify-between items-center mb-2">
-        <div className="font-medium">{label}</div>
-        <div className="text-fitnessRed">{percentage}%</div>
+    <div className="progress-bar-card">
+      <div className="progress-bar-header">
+        <div className="progress-bar-label">{label}</div>
+        <div className="progress-bar-percentage">{percentage}%</div>
       </div>
-      <div className="progress-bar mb-2">
+      <div className="progress-bar-container">
         <div 
-          className="progress-bar-inner" 
+          className="progress-bar-fill" 
           style={{ width: `${percentage}%` }}
         ></div>
       </div>
-      <div className="flex justify-between text-sm">
-        <div>{value}</div>
-        <div className="text-fitnessGray">{subtitle}</div>
+      <div className="progress-bar-footer">
+        <div className="progress-bar-value">{value}</div>
+        <div className="progress-bar-subtitle">{subtitle}</div>
       </div>
     </div>
   );

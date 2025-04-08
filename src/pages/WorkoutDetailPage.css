@@ -1,0 +1,145 @@
+
+.workout-detail-page {
+  min-height: 100vh;
+  background-color: white;
+  color: black;
+}
+
+.workout-detail-header {
+  padding: 24px 16px;
+  display: flex;
+  align-items: center;
+}
+
+.back-button {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+}
+
+.back-icon {
+  width: 24px;
+  height: 24px;
+  color: black;
+}
+
+.workout-detail-title {
+  flex: 1;
+}
+
+.workout-name {
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.workout-week-section {
+  padding: 16px;
+}
+
+.workout-week-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.workout-week-flag {
+  margin-right: 8px;
+}
+
+.workout-week-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.workout-days-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.workout-day-item {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+
+.workout-day-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  margin-right: 16px;
+  background-color: white;
+}
+
+.workout-day-item.active .workout-day-dot {
+  background-color: #ff4d6d;
+  border-color: #ff4d6d;
+}
+
+.workout-day-content {
+  flex: 1;
+}
+
+.workout-day-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.workout-day-info {
+  color: #666;
+  font-size: 14px;
+}
+
+.workout-day-action {
+  background-color: white;
+  border: 1px solid #eee;
+  border-radius: 9999px;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.workout-day-action-text {
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+.workout-day-action-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.workout-day-rest-icon {
+  font-size: 24px;
+}
+
+/* Connecting line between days */
+.workout-days-list::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: #ddd;
+  z-index: -1;
+}
+
+.workout-day-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 24px;
+  width: 2px;
+  height: 40px;
+  background-color: #ddd;
+}

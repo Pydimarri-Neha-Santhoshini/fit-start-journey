@@ -1,0 +1,162 @@
+
+.ai-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.ai-form {
+  background-color: #1a1a1a;
+  padding: 24px;
+  border-radius: 8px;
+  margin-bottom: 40px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.form-input, .form-select {
+  width: 100%;
+  padding: 10px;
+  background-color: #333;
+  border: 1px solid #444;
+  border-radius: 4px;
+  color: white;
+}
+
+.intensity-options {
+  display: flex;
+  gap: 20px;
+}
+
+.intensity-option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.intensity-option input {
+  margin-right: 8px;
+}
+
+.intensity-option.active {
+  color: #4CAF50;
+}
+
+.recommendations-button {
+  background-color: #2979FF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 24px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+}
+
+.recommendations-container {
+  background-color: #1a1a1a;
+  padding: 24px;
+  border-radius: 8px;
+}
+
+.recommendations-heading {
+  font-size: 24px;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+.meal-plan-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.meal-plan-item {
+  background-color: #eee;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.meal-plan-title {
+  color: #2979FF;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.meal-plan-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  color: black;
+}
+
+.meal-swap-button {
+  background-color: white;
+  color: #2979FF;
+  border: 1px solid #2979FF;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.workout-plan-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.workout-plan-item {
+  background-color: white;
+  padding: 16px;
+  border-radius: 8px;
+  color: black;
+}
+
+.workout-plan-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.workout-difficulty {
+  color: #888;
+  font-style: italic;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.save-plan-button, .regenerate-button {
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.save-plan-button {
+  background-color: white;
+  color: #2979FF;
+  border: 1px solid #2979FF;
+  flex: 1;
+}
+
+.regenerate-button {
+  background-color: #2979FF;
+  color: white;
+  border: none;
+  flex: 2;
+}

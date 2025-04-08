@@ -1,5 +1,6 @@
 
 import React from 'react';
+import './CircularProgress.css';
 
 interface CircularProgressProps {
   percentage: number;
@@ -12,11 +13,11 @@ const CircularProgress: React.FC<CircularProgressProps> = ({ percentage }) => {
   const offset = circumference - (percentage / 100) * circumference;
 
   return (
-    <div className="circular-progress flex items-center justify-center relative">
+    <div className="circular-progress">
       <svg viewBox="0 0 100 100">
-        <circle className="bg" cx="50" cy="50" r={radius} />
+        <circle className="progress-bg" cx="50" cy="50" r={radius} />
         <circle 
-          className="progress" 
+          className="progress-indicator" 
           cx="50" 
           cy="50" 
           r={radius} 
@@ -24,9 +25,9 @@ const CircularProgress: React.FC<CircularProgressProps> = ({ percentage }) => {
           strokeDashoffset={offset}
         />
       </svg>
-      <div className="absolute text-center">
-        <div className="text-3xl font-bold">{percentage}%</div>
-        <div className="text-xs text-fitnessGray">Completion</div>
+      <div className="progress-text">
+        <div className="progress-value">{percentage}%</div>
+        <div className="progress-label">Completion</div>
       </div>
     </div>
   );
