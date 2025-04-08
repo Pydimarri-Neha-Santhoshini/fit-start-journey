@@ -123,15 +123,13 @@
 }
 
 /* Connecting line between days */
-.workout-days-list::before {
-  content: '';
-  position: absolute;
-  left: 12px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background-color: #ddd;
-  z-index: -1;
+.workout-days-list {
+  position: relative;
+}
+
+.workout-day-item {
+  position: relative;
+  z-index: 1;
 }
 
 .workout-day-item:not(:last-child)::after {
@@ -142,4 +140,5 @@
   width: 2px;
   height: 40px;
   background-color: #ddd;
+  z-index: -1;
 }
