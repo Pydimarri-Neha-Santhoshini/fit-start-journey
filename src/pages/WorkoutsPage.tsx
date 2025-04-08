@@ -63,7 +63,7 @@ const WorkoutsPage = () => {
                 </div>
               </div>
               
-              <Link to={`/workout/${workout.id}`} className="workout-plan-button">
+              <Link to={`/workout/${workout.id}/1`} className="workout-plan-button">
                 START
                 <svg xmlns="http://www.w3.org/2000/svg" className="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

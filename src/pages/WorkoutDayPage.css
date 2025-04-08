@@ -9,8 +9,9 @@
 }
 
 .workout-day-header {
-  background-color: #f5f5f5;
+  background-color: #fde2e7;
   padding: 10px 20px 20px;
+  position: relative;
 }
 
 .workout-header-top {
@@ -36,6 +37,18 @@
 
 .workout-title-container {
   margin-top: 10px;
+  position: relative;
+}
+
+.back-button {
+  position: absolute;
+  left: 0;
+  top: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: black;
+  padding: 0;
 }
 
 .workout-day-name {
@@ -45,8 +58,21 @@
 }
 
 .workout-day-info {
-  color: #777;
+  color: #555;
   font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.comments-container {
+  margin-top: 5px;
+}
+
+.comments-link {
+  color: #ea384c;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .workout-sections {
