@@ -1,0 +1,592 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness App</title>
+    <style>
+        /* General styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+        
+        body {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        .app-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            background-color: #000000;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-logo {
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 8px;
+        }
+
+        .navbar-links a {
+            padding: 8px 12px;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .navbar-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar-links a.active {
+            background-color: #ea384c;
+            color: #ffffff;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Page header */
+        .page-header {
+            margin-bottom: 24px;
+        }
+
+        .page-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Workout cards */
+        .workouts-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .workout-plan-card {
+            background-color: #ffeef2;
+            border-radius: 16px;
+            padding: 16px;
+        }
+
+        .difficulty-indicator {
+            margin-bottom: 12px;
+        }
+
+        .difficulty-icon {
+            color: #dddddd;
+            margin-right: 4px;
+        }
+
+        .difficulty-icon.active {
+            color: #ea384c;
+        }
+
+        .workout-plan-content {
+            position: relative;
+            display: flex;
+            margin-bottom: 16px;
+        }
+
+        .workout-plan-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .workout-plan-info {
+            position: relative;
+            z-index: 1;
+            padding: 16px;
+        }
+
+        .workout-plan-title {
+            font-size: 16px;
+            color: #000000;
+            margin-bottom: 4px;
+        }
+
+        .workout-plan-day {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000000;
+        }
+
+        .workout-plan-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ff4d6d;
+            color: white;
+            border-radius: 9999px;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Workout Day Page */
+        .workout-day-page {
+            min-height: 100vh;
+            background-color: white;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            display: none; /* Hidden initially */
+        }
+
+        .workout-day-header {
+            background-color: #fde2e7;
+            padding: 10px 20px 20px;
+            position: relative;
+        }
+
+        .workout-header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .workout-title-container {
+            margin-top: 10px;
+            position: relative;
+        }
+
+        .back-button {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: black;
+            padding: 0;
+        }
+
+        .workout-day-name {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .workout-day-info {
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .comments-container {
+            margin-top: 5px;
+        }
+
+        .comments-link {
+            color: #ea384c;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .workout-sections {
+            flex: 1;
+            padding: 0 20px;
+            overflow-y: auto;
+        }
+
+        .workout-section {
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+        }
+
+        .workout-section-header {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .workout-section-title {
+            font-size: 18px;
+            font-weight: bold;
+            flex: 1;
+        }
+
+        .dropdown-indicator {
+            color: #999;
+            font-size: 12px;
+        }
+
+        .edit-button {
+            color: #ea384c;
+            background: none;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .exercises-section {
+            border-bottom: none;
+        }
+
+        .exercises-list {
+            margin-top: 15px;
+        }
+
+        .exercise-item {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+
+        .exercise-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-right: 15px;
+            background-color: #f7f7f7;
+        }
+
+        .exercise-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .exercise-details {
+            flex: 1;
+        }
+
+        .exercise-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+
+        .exercise-count {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .workout-footer {
+            padding: 15px 20px;
+            background-color: white;
+            border-top: 1px solid #eee;
+        }
+
+        .start-workout-button {
+            width: 100%;
+            background-color: #ea384c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .start-workout-button:hover {
+            background-color: #d2293d;
+        }
+
+        /* Utility */
+        .chevron-icon {
+            width: 20px;
+            height: 20px;
+            margin-left: 8px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .visible {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container" id="workouts-page">
+        <nav class="navbar">
+            <div class="navbar-logo">FitStart</div>
+            <div class="navbar-links">
+                <a href="#" class="active">Workouts</a>
+                <a href="#">Nutrition</a>
+                <a href="#">Progress</a>
+                <a href="#">Community</a>
+            </div>
+        </nav>
+        <div class="main-content">
+            <div class="page-header">
+                <h1 class="page-title">Select Training Plan</h1>
+            </div>
+            
+            <div class="workouts-list" id="workouts-list">
+                <!-- Workouts will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <div class="workout-day-page" id="workout-day-page">
+        <div class="workout-day-header">
+            <div class="workout-header-top">
+                <div class="workout-time">12:27</div>
+                <div class="workout-icons">
+                    <span class="workout-icon">⚡</span>
+                    <span class="workout-icon">📶</span>
+                    <span class="workout-icon">🔋</span>
+                </div>
+            </div>
+            
+            <div class="workout-title-container">
+                <button id="back-button" class="back-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M15 18l-6-6 6-6" />
+                    </svg>
+                </button>
+                <h1 class="workout-day-name">Day 1</h1>
+                <p class="workout-day-info">16 Mins • 17 Workouts</p>
+                <div class="comments-container">
+                    <span class="comments-link">Comments Questions</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="workout-sections">
+            <div class="workout-section">
+                <div class="workout-section-header">
+                    <h2 class="workout-section-title">Instruction</h2>
+                    <div class="dropdown-indicator">▼</div>
+                </div>
+            </div>
+            
+            <div class="workout-section">
+                <div class="workout-section-header">
+                    <h2 class="workout-section-title">Workout Settings</h2>
+                    <p class="workout-section-subtitle">Sound & Music & Timer</p>
+                    <div class="dropdown-indicator">▶</div>
+                </div>
+            </div>
+            
+            <div class="workout-section exercises-section">
+                <div class="workout-section-header">
+                    <h2 class="workout-section-title">Exercises</h2>
+                    <button class="edit-button">Edit</button>
+                </div>
+                
+                <div class="exercises-list" id="exercises-list">
+                    <!-- Exercises will be loaded here by JavaScript -->
+                </div>
+            </div>
+        </div>
+        
+        <div class="workout-footer">
+            <button class="start-workout-button">
+                Start with warm ups
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Workout data
+        const workouts = [
+            {
+                id: 'build-muscle',
+                title: 'Build muscle & strength',
+                image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1770&auto=format&fit=crop',
+                difficulty: 4
+            },
+            {
+                id: 'lose-weight',
+                title: 'Lose weight & Keep fit',
+                image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1770&auto=format&fit=crop',
+                difficulty: 3
+            },
+            {
+                id: 'lose-belly-fat',
+                title: 'Lose belly fat',
+                image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1770&auto=format&fit=crop',
+                difficulty: 3
+            },
+            {
+                id: 'cardio',
+                title: 'Cardio Training',
+                image: 'https://images.unsplash.com/photo-1538805060514-97d9cc17730c?q=80&w=1769&auto=format&fit=crop',
+                difficulty: 3
+            }
+        ];
+
+        // Exercise data
+        const exercises = [
+            { id: 1, name: 'SQUATS', reps: '×16', image: 'https://images.unsplash.com/photo-1434608519344-49d01f1a3169?q=80&w=1920&auto=format&fit=crop' },
+            { id: 2, name: 'INCLINE PUSH-UPS', reps: '×12', image: 'https://images.unsplash.com/photo-1434608519344-49d01f1a3169?q=80&w=1920&auto=format&fit=crop' },
+            { id: 3, name: 'MOUNTAIN CLIMBER', time: '00:30', image: 'https://images.unsplash.com/photo-1434608519344-49d01f1a3169?q=80&w=1920&auto=format&fit=crop' },
+            { id: 4, name: 'RUSSIAN TWIST', reps: '×10', image: 'https://images.unsplash.com/photo-1434608519344-49d01f1a3169?q=80&w=1920&auto=format&fit=crop' },
+            { id: 5, name: 'REVERSE CRUNCHES', reps: '×12', image: 'https://images.unsplash.com/photo-1434608519344-49d01f1a3169?q=80&w=1920&auto=format&fit=crop' },
+            { id: 6, name: 'BACKWARD LUNGE WITH FRONT KICK LEFT', reps: '×6', image: 'https://images.unsplash.com/photo-1434608519344-49d01f1a3169?q=80&w=1920&auto=format&fit=crop' },
+            { id: 7, name: 'BACKWARD LUNGE WITH FRONT KICK RIGHT', reps: '×6', image: 'https://images.unsplash.com/photo-1434608519344-49d01f1a3169?q=80&w=1920&auto=format&fit=crop' },
+            { id: 8, name: 'CAT COW POSE', time: '00:30', image: 'https://images.unsplash.com/photo-1434608519344-49d01f1a3169?q=80&w=1920&auto=format&fit=crop' },
+            { id: 9, name: 'PLANK', time: '00:30', image: 'https://images.unsplash.com/photo-1434608519344-49d01f1a3169?q=80&w=1920&auto=format&fit=crop' }
+        ];
+
+        // Initialize the Workouts page
+        function initWorkoutsPage() {
+            const workoutsList = document.getElementById('workouts-list');
+            
+            workouts.forEach(workout => {
+                const workoutCard = document.createElement('div');
+                workoutCard.className = 'workout-plan-card';
+                
+                // Create difficulty indicator
+                const difficultyIndicator = document.createElement('div');
+                difficultyIndicator.className = 'difficulty-indicator';
+                
+                for (let i = 0; i < 5; i++) {
+                    const difficultyIcon = document.createElement('span');
+                    difficultyIcon.className = `difficulty-icon ${i < workout.difficulty ? 'active' : ''}`;
+                    difficultyIcon.textContent = '⚡';
+                    difficultyIndicator.appendChild(difficultyIcon);
+                }
+                
+                // Create content
+                const content = document.createElement('div');
+                content.className = 'workout-plan-content';
+                
+                const img = document.createElement('img');
+                img.src = workout.image;
+                img.alt = workout.title;
+                img.className = 'workout-plan-image';
+                
+                const info = document.createElement('div');
+                info.className = 'workout-plan-info';
+                
+                const title = document.createElement('h3');
+                title.className = 'workout-plan-title';
+                title.textContent = workout.title;
+                
+                const day = document.createElement('h2');
+                day.className = 'workout-plan-day';
+                day.textContent = 'DAY 1';
+                
+                info.appendChild(title);
+                info.appendChild(day);
+                
+                content.appendChild(img);
+                content.appendChild(info);
+                
+                // Create button
+                const button = document.createElement('div');
+                button.className = 'workout-plan-button';
+                button.textContent = 'START';
+                button.innerHTML += `
+                    <svg xmlns="http://www.w3.org/2000/svg" class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                `;
+                
+                // Add click event to button
+                button.addEventListener('click', () => {
+                    showWorkoutDay(workout.id);
+                });
+                
+                // Append all elements
+                workoutCard.appendChild(difficultyIndicator);
+                workoutCard.appendChild(content);
+                workoutCard.appendChild(button);
+                
+                workoutsList.appendChild(workoutCard);
+            });
+        }
+
+        // Initialize the Workout Day page
+        function initWorkoutDayPage() {
+            const exercisesList = document.getElementById('exercises-list');
+            
+            exercises.forEach(exercise => {
+                const exerciseItem = document.createElement('div');
+                exerciseItem.className = 'exercise-item';
+                
+                const exerciseImage = document.createElement('div');
+                exerciseImage.className = 'exercise-image';
+                
+                const img = document.createElement('img');
+                img.src = exercise.image;
+                img.alt = exercise.name;
+                
+                exerciseImage.appendChild(img);
+                
+                const exerciseDetails = document.createElement('div');
+                exerciseDetails.className = 'exercise-details';
+                
+                const name = document.createElement('h3');
+                name.className = 'exercise-name';
+                name.textContent = exercise.name;
+                
+                const count = document.createElement('p');
+                count.className = 'exercise-count';
+                count.textContent = exercise.reps || exercise.time;
+                
+                exerciseDetails.appendChild(name);
+                exerciseDetails.appendChild(count);
+                
+                exerciseItem.appendChild(exerciseImage);
+                exerciseItem.appendChild(exerciseDetails);
+                
+                exercisesList.appendChild(exerciseItem);
+            });
+
+            // Back button functionality
+            document.getElementById('back-button').addEventListener('click', () => {
+                hideWorkoutDay();
+            });
+        }
+
+        // Show the Workout Day page
+        function showWorkoutDay(workoutId) {
+            document.getElementById('workouts-page').style.display = 'none';
+            document.getElementById('workout-day-page').style.display = 'flex';
+        }
+
+        // Hide the Workout Day page
+        function hideWorkoutDay() {
+            document.getElementById('workouts-page').style.display = 'flex';
+            document.getElementById('workout-day-page').style.display = 'none';
+        }
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', () => {
+            initWorkoutsPage();
+            initWorkoutDayPage();
+        });
+    </script>
+</body>
+</html>
