@@ -1,0 +1,81 @@
+
+.app-container {
+  min-height: 100vh;
+  background-color: #0c0c0c;
+  color: white;
+}
+
+.training-header {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.training-title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.training-plans-container {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.training-plan-card {
+  background-color: #ffeef2;
+  border-radius: 16px;
+  padding: 24px;
+  color: black;
+  position: relative;
+}
+
+.difficulty {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.difficulty-bolt {
+  color: #ddd;
+}
+
+.difficulty-bolt.active {
+  color: #ea384c;
+}
+
+.plan-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.plan-day {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.plan-button {
+  background-color: #ea384c;
+  color: white;
+  border-radius: 50px;
+  padding: 12px 24px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+  width: 100%;
+}

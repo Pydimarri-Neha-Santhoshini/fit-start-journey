@@ -1,76 +1,115 @@
 
 import React from 'react';
-import Navbar from '@/components/Navbar';
-import SectionHeader from '@/components/SectionHeader';
 import { Link } from 'react-router-dom';
+import Navbar from '@/components/Navbar';
+import WorkoutCard from '@/components/WorkoutCard';
+import SectionHeader from '@/components/SectionHeader';
 import './WorkoutsPage.css';
-
-const workouts = [
-  {
-    id: 'build-muscle',
-    title: 'Build muscle & strength',
-    image: 'public/lovable-uploads/a6fe7e2f-eda7-4618-acb1-8014fed003ae.png',
-    difficulty: 4
-  },
-  {
-    id: 'lose-weight',
-    title: 'Lose weight & Keep fit',
-    image: 'public/lovable-uploads/d85aca03-c211-400e-945f-9253bce8fbdc.png',
-    difficulty: 3
-  },
-  {
-    id: 'lose-belly-fat',
-    title: 'Lose belly fat',
-    image: 'public/lovable-uploads/4be80c65-f892-48ec-9764-1459eecce77e.png',
-    difficulty: 3
-  },
-  {
-    id: 'cardio',
-    title: 'Cardio Training',
-    image: 'public/lovable-uploads/52a505a2-31ec-4a02-b170-27bec0f6008d.png',
-    difficulty: 3
-  }
-];
 
 const WorkoutsPage = () => {
   return (
     <div className="app-container">
       <Navbar />
+      
       <div className="main-content">
         <div className="page-header">
-          <h1 className="page-title">Select Training Plan</h1>
+          <h1 className="page-title">Workouts</h1>
         </div>
         
-        <div className="workouts-list">
-          {workouts.map(workout => (
-            <div key={workout.id} className="workout-plan-card">
-              <div className="difficulty-indicator">
-                {Array(5).fill(0).map((_, i) => (
-                  <span 
-                    key={i} 
-                    className={`difficulty-icon ${i < workout.difficulty ? 'active' : ''}`}
-                  >
-                    ⚡
-                  </span>
-                ))}
+        <div className="workouts-section">
+          <SectionHeader 
+            title="RECOMMENDED FOR YOU" 
+            linkText="View All" 
+            linkUrl="/workouts/recommended" 
+          />
+          
+          <div className="workouts-grid">
+            <WorkoutCard
+              title="MORNING HIT CARDIO"
+              duration={20}
+              level="Beginner"
+              imageUrl="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+              link="/workout/cardio"
+            />
+            
+            <WorkoutCard
+              title="FULL BODY STRENGTH"
+              duration={30}
+              level="Intermediate"
+              imageUrl="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+              link="/workout/strength"
+            />
+            
+            <WorkoutCard
+              title="YOGA FOR FLEXIBILITY"
+              duration={20}
+              level="All Levels"
+              imageUrl="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1520&q=80"
+              link="/workout/yoga"
+            />
+          </div>
+        </div>
+        
+        <div className="training-plans-section">
+          <SectionHeader 
+            title="TRAINING PLANS" 
+            linkText="View All" 
+            linkUrl="/workout/strength/plans" 
+          />
+          
+          <div className="plans-grid">
+            <div className="plan-card">
+              <div className="plan-image">
+                <img src="public/lovable-uploads/d46f3a34-57cd-4838-b0a7-8178e63888e6.png" alt="Build Muscle" />
               </div>
-              
-              <div className="workout-plan-content">
-                <img src={workout.image} alt={workout.title} className="workout-plan-image" />
-                <div className="workout-plan-info">
-                  <h3 className="workout-plan-title">{workout.title}</h3>
-                  <h2 className="workout-plan-day">DAY 1</h2>
-                </div>
+              <div className="plan-content">
+                <h3 className="plan-title">Build Muscle & Strength</h3>
+                <p className="plan-description">8-week program to build muscle mass</p>
+                <Link to="/workout/strength/plans" className="view-plan-button">View Plan</Link>
               </div>
-              
-              <Link to={`/workout/${workout.id}/1`} className="workout-plan-button">
-                START
-                <svg xmlns="http://www.w3.org/2000/svg" className="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </Link>
             </div>
-          ))}
+            
+            <div className="plan-card">
+              <div className="plan-image">
+                <img src="public/lovable-uploads/57448d3c-bee9-4ed1-8b99-6fe6dbe6e7e9.png" alt="Weight Loss" />
+              </div>
+              <div className="plan-content">
+                <h3 className="plan-title">Weight Loss Challenge</h3>
+                <p className="plan-description">12-week program for losing weight</p>
+                <Link to="/workout/weight-loss/plans" className="view-plan-button">View Plan</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div className="categories-section">
+          <SectionHeader 
+            title="WORKOUT CATEGORIES" 
+            linkText="" 
+            linkUrl="" 
+          />
+          
+          <div className="categories-grid">
+            <Link to="/workout/strength" className="category-card">
+              <div className="category-icon">💪</div>
+              <div className="category-title">Strength</div>
+            </Link>
+            
+            <Link to="/workout/cardio" className="category-card">
+              <div className="category-icon">🏃</div>
+              <div className="category-title">Cardio</div>
+            </Link>
+            
+            <Link to="/workout/yoga" className="category-card">
+              <div className="category-icon">🧘</div>
+              <div className="category-title">Yoga</div>
+            </Link>
+            
+            <Link to="/workout/stretching" className="category-card">
+              <div className="category-icon">🤸</div>
+              <div className="category-title">Stretching</div>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

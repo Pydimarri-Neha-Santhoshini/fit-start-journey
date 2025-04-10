@@ -10,7 +10,9 @@ import NutritionPage from "./pages/NutritionPage";
 import ProgressPage from "./pages/ProgressPage";
 import CommunityPage from "./pages/CommunityPage";
 import WorkoutDetailPage from "./pages/WorkoutDetailPage";
+import TrainingPlansPage from "./pages/TrainingPlansPage";
 import WorkoutDayPage from "./pages/WorkoutDayPage";
+import ExercisePage from "./pages/ExercisePage";
 import AiRecommendationsPage from "./pages/AiRecommendationsPage";
 import BmiCalculatorPage from "./pages/BmiCalculatorPage";
 import SettingsPage from "./pages/SettingsPage";
@@ -28,7 +30,9 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/workouts" element={<WorkoutsPage />} />
           <Route path="/workout/:type" element={<WorkoutDetailPage />} />
+          <Route path="/workout/:type/plans" element={<TrainingPlansPage />} />
           <Route path="/workout/:type/:day" element={<WorkoutDayPage />} />
+          <Route path="/workout/:type/:day/exercise" element={<ExercisePage />} />
           <Route path="/nutrition" element={<NutritionPage />} />
           <Route path="/progress" element={<ProgressPage />} />
           <Route path="/community" element={<CommunityPage />} />

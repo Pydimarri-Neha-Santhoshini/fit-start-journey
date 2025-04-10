@@ -1,4 +1,10 @@
 
+.main-content {
+  padding: 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
 .page-header {
   margin-bottom: 24px;
 }
@@ -8,79 +14,136 @@
   font-weight: bold;
 }
 
-.workouts-list {
+.workouts-section, 
+.training-plans-section, 
+.categories-section {
+  margin-bottom: 40px;
+}
+
+.workouts-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+@media (min-width: 768px) {
+  .workouts-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.plans-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+@media (min-width: 768px) {
+  .plans-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.plan-card {
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 16px;
 }
 
-.workout-plan-card {
-  background-color: #ffeef2;
-  border-radius: 16px;
+@media (min-width: 640px) {
+  .plan-card {
+    flex-direction: row;
+    height: 160px;
+  }
+}
+
+.plan-image {
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .plan-image {
+    width: 160px;
+  }
+}
+
+.plan-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.plan-content {
   padding: 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-.difficulty-indicator {
+.plan-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.plan-description {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: auto;
+}
+
+.view-plan-button {
+  background-color: #ea384c;
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin-top: 16px;
+  display: inline-block;
+  text-align: center;
+  font-weight: 500;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+
+@media (min-width: 768px) {
+  .categories-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.category-card {
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.2s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+}
+
+.category-icon {
+  font-size: 32px;
   margin-bottom: 12px;
 }
 
-.difficulty-icon {
-  color: #dddddd;
-  margin-right: 4px;
-}
-
-.difficulty-icon.active {
-  color: #ea384c;
-}
-
-.workout-plan-content {
-  position: relative;
-  display: flex;
-  margin-bottom: 16px;
-}
-
-.workout-plan-image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 8px;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.workout-plan-info {
-  position: relative;
-  z-index: 1;
-  padding: 16px;
-}
-
-.workout-plan-title {
-  font-size: 16px;
-  color: #000000;
-  margin-bottom: 4px;
-}
-
-.workout-plan-day {
-  font-size: 24px;
-  font-weight: bold;
-  color: #000000;
-}
-
-.workout-plan-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #ff4d6d;
-  color: white;
-  border-radius: 9999px;
-  padding: 12px 24px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.chevron-icon {
-  width: 20px;
-  height: 20px;
-  margin-left: 8px;
+.category-title {
+  font-weight: 500;
 }
